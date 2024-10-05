@@ -22,6 +22,7 @@ Route::view("/register", "Auth.Register")->name("page.register");
 Route::post("/user/register", [AuthController::class,"register"])->name("page.register.create");
 Route::view("/login", "Auth.Login")->name("page.login");
 Route::post('/user/login', [AuthController::class,'login'])->name('page.login.action');
+Route::post("/logout", [AuthController::class, "logout"])->name("page.logout");
 
 // term routes
 Route::view("/terms", "Terms")->name("itea.terms");
