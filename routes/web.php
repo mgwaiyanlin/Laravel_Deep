@@ -18,8 +18,9 @@ Route::get("/idea/show/{idea}", [IdeaController::class, "show"])->name("idea.sho
 Route::post("/idea/{idea}/comment", [CommentController::class, 'store'])->name('idea.comment');
 
 // Authentication routes
-Route::view("/page/register", "Auth.Register")->name("page.register");
-Route::post("/page/user/register", [AuthController::class,"register"])->name("page.register.create");
+Route::view("/register", "Auth.Register")->name("page.register");
+Route::post("/user/register", [AuthController::class,"register"])->name("page.register.create");
+Route::view("/login", "Auth.Login")->name("page.login");
 
 // term routes
 Route::view("/terms", "Terms")->name("itea.terms");
