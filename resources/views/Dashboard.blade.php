@@ -9,13 +9,16 @@
             @include('Shared.SuccessMessage')
             @include('Shared.SharedIdeaForm')
 
-            @foreach ($ideas as $idea)
-                <div class="mt-3">
-                    @include('Shared.IdeaCard')
-                </div>
-            @endforeach
+            @forelse ($ideas as $idea)
             <div class="mt-3">
-                {{ $ideas->links() }}
+                @include('Shared.IdeaCard')
+            </div>
+            @empty
+                <p class="text-center my-4">No results found!</p>
+            @endforelse
+
+            <div class="mt-3">
+                {{ $ideas->withQueryString()->links() }}
             </div>
         </div>
         <div class="col-3">

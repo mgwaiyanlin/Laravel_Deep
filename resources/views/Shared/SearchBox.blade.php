@@ -5,7 +5,7 @@
     <div class="card-body">
         <form action="{{ route("idea.dashboard") }}" method="GET">
             @csrf
-            <input name="search" placeholder="..." class="form-control w-100" type="text" id="search">
+            <input name="search" value="{{ request('search', '') }}" placeholder="..." class="form-control w-100" type="text" id="search">
             <button type="submit" class="btn btn-dark mt-2"> Search</button>
         </form>
     </div>

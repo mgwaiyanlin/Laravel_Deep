@@ -5,6 +5,7 @@ use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\UserController;
 
 // idea routes
 Route::get("/", [DashboardController::class,"index"])->name("idea.dashboard");
@@ -19,6 +20,11 @@ Route::group(["prefix"=> "idea/", "as"=> "idea.", "middleware"=> ["auth"]], func
     Route::get("show/{idea}", [IdeaController::class, "show"])->name("show");
     Route::post("{idea}/comment", [CommentController::class, 'store'])->name('comment');
 });
+
+// Resource Routing :: is the same as above the old way route style.
+// !WARNING! needs to follow the routing name rules
+// Route::resource('idea', IdeaController::class)->except('index', 'create')->middleware('auth');
+Route::resource('user', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
 // Authentication routes
 Route::view("/register", "Auth.Register")->name("register");

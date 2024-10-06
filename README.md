@@ -1,8 +1,12 @@
 ## Useful commands
 -  `php artisan make:controller DashboardController`
+##### with pre-defined functions
+-  ` php artisan make:controller IdeaController -r `
 -  `php artisan make:model Idea -m`
+##### with model, controller, migrations
 -  ` php artisan make:model Idea -m -c`
 -  ` php artisan make:provider RouteServiceProvider `
+
 
 ## Included Features
 - CRUD functionalities with MySQL
