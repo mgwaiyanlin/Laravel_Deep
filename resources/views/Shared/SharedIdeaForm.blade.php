@@ -1,5 +1,7 @@
+
+@auth
 <div>
-    <h4> Share yours ideas </h4>
+    <h4> Share your ideas </h4>
     <div class="row">
         <form action="{{ route('idea.store') }}" method="POST">
             @csrf
@@ -16,3 +18,10 @@
     </div>
     <hr>
 </div>
+@endauth
+
+@guest
+    <h4>You need to login to share your ideas!</h4>
+@endguest
+
+

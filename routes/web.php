@@ -8,21 +8,24 @@ use App\Http\Controllers\IdeaController;
 
 // idea routes
 Route::get("/", [DashboardController::class,"index"])->name("idea.dashboard");
-Route::post("/idea/store", [IdeaController::class, "store"])->name("idea.store");
-Route::get("/idea/edit/{idea}", [IdeaController::class,"edit"])->name("idea.edit");
-Route::put("/idea/update/{idea}", [IdeaController::class,"update"])->name("idea.update");
-Route::delete("/idea/delete/{idea}", [IdeaController::class,"destroy"])->name("idea.delete");
-Route::get("/idea/show/{idea}", [IdeaController::class, "show"])->name("idea.show");
 
-// comment routes
-Route::post("/idea/{idea}/comment", [CommentController::class, 'store'])->name('idea.comment');
+Route::group(["prefix"=> "idea/", "as"=> "idea.", "middleware"=> ["auth"]], function () {
+    // The way of unaffecting middleware to a route.
+    // Route::post("store", [IdeaController::class, "store"])->name("store")->withoutMiddleware("auth");
+    Route::post("store", [IdeaController::class, "store"])->name("store");
+    Route::get("edit/{idea}", [IdeaController::class,"edit"])->name("edit");
+    Route::put("update/{idea}", [IdeaController::class,"update"])->name("update");
+    Route::delete("delete/{idea}", [IdeaController::class,"destroy"])->name("delete");
+    Route::get("show/{idea}", [IdeaController::class, "show"])->name("show");
+    Route::post("{idea}/comment", [CommentController::class, 'store'])->name('comment');
+});
 
 // Authentication routes
-Route::view("/register", "Auth.Register")->name("page.register");
-Route::post("/user/register", [AuthController::class,"register"])->name("page.register.create");
-Route::view("/login", "Auth.Login")->name("page.login");
-Route::post('/user/login', [AuthController::class,'login'])->name('page.login.action');
-Route::post("/logout", [AuthController::class, "logout"])->name("page.logout");
+Route::view("/register", "Auth.Register")->name("register");
+Route::post("/user/register", [AuthController::class,"register"])->name("register.create");
+Route::view("/login", "Auth.Login")->name("login");
+Route::post('/user/login', [AuthController::class,'login'])->name('login.action');
+Route::post("/logout", [AuthController::class, "logout"])->name("logout");
 
 // term routes
 Route::view("/terms", "Terms")->name("itea.terms");

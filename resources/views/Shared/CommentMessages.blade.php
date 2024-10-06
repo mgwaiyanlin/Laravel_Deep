@@ -3,7 +3,7 @@
         src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Luigi" alt="Luigi Avatar">
     <div class="w-100">
         <div class="d-flex justify-content-between">
-            <h6 class="">Luigi</h6>
+            <h6 class="">{{ $comment->user->name }}</h6>
             <small class="fs-6 fw-light text-muted"> 3 hour ago</small>
         </div>
         <p class="fs-6 mt-3 fw-light">

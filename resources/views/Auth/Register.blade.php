@@ -3,7 +3,7 @@
 @section('AppContent')
 <div class="row justify-content-center">
     <div class="col-12 col-sm-8 col-md-6">
-        <form class="form mt-5" action="{{ route('page.register.create') }}" method="post">
+        <form class="form mt-5" action="{{ route('register.create') }}" method="post">
             @csrf
             <h3 class="text-center text-dark">Register</h3>
             <div class="form-group">
@@ -39,7 +39,7 @@
                 <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
             </div>
             <div class="text-right mt-2">
-                <a href="{{ route("page.login") }}" class="text-dark">Login here</a>
+                <a href="{{ route("login") }}" class="text-dark">Login here</a>
             </div>
         </form>
     </div>
