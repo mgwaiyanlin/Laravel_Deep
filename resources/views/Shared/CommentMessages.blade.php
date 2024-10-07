@@ -1,6 +1,6 @@
 <div class="d-flex align-items-start">
     <img style="width:35px" class="me-2 avatar-sm rounded-circle"
-        src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Luigi" alt="Luigi Avatar">
+        src="{{ $comment->user->getImageUrl() }}" alt="Luigi Avatar">
     <div class="w-100">
         <div class="d-flex justify-content-between">
             <h6 class="">{{ $comment->user->name }}</h6>
