@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\UserController;
 
@@ -25,6 +26,9 @@ Route::group(["prefix"=> "idea/", "as"=> "idea.", "middleware"=> ["auth"]], func
 // !WARNING! needs to follow the routing name rules
 // Route::resource('idea', IdeaController::class)->except('index', 'create')->middleware('auth');
 Route::resource('user', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
+
+Route::post('/user/{user}/follow', [FollowerController::class,'follow'])->name('user.follow');
+Route::post('/user/{user}/unfollow', [FollowerController::class,'unfollow'])->name('user.unfollow');
 
 // Authentication routes
 Route::view("/register", "Auth.Register")->name("register");

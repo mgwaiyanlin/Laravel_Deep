@@ -7,6 +7,7 @@
         </div>
         <div class="col-6">
             @include('Shared.SuccessMessage')
+            {{-- @include('Shared.ErrorMessaage') --}}
             @include('Shared.SharedIdeaForm')
 
             @forelse ($ideas as $idea)
