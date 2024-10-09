@@ -23,3 +23,8 @@
 - ``` php artisan config:clear ```
 - ``` php artisan event:clear ```
 - ``` php artisan clear-compiled ```
+
+
+#### Laravel Debuger Installation
+`composer require barryvdh/laravel-debuger --dev`
+
