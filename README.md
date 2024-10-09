@@ -1,13 +1,13 @@
 ## Useful commands
 -  `php artisan make:controller DashboardController`
--  ` php artisan make:controller IdeaController -r ` with pre-defined functions
+-  `php artisan make:controller IdeaController -r ` with pre-defined functions
 -  `php artisan make:model Idea -m`
--  ` php artisan make:model Idea -m -c` with model, controller, migrations
--  ` php artisan make:provider RouteServiceProvider `
--  ` php artisan make:migration add_bio_and_image_to_users ` augment columns to an existing table
--  ` php artisan storage:link ` to link 'public/storage' with 'storage/app/public'
-- ` php artisan make:migration create_follower_user_table --create `
-- ` php artisan make:mail WelcomeEmail `
+-  `php artisan make:model Idea -m -c` with model, controller, migrations
+-  `php artisan make:provider RouteServiceProvider `
+-  `php artisan make:migration add_bio_and_image_to_users ` augment columns to an existing table
+-  `php artisan storage:link ` to link 'public/storage' with 'storage/app/public'
+-  `php artisan make:migration create_follower_user_table --create `
+-  `php artisan make:mail WelcomeEmail `
 
 
 ## Included Features

@@ -1,7 +1,11 @@
 @extends('AppLayout.Layout')
 
 @section('AppContent')
-    <div>
+<div class="row">
+    <div class="col-3">
+        @include("Shared.LeftSideMenu")
+    </div>
+    <div class="col-6">
         <h1>Terms</h1>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, velit nisi optio, dolor, ipsum incidunt veniam
@@ -21,4 +25,11 @@
             impedit harum neque. Consequuntur, porro nihil?
         </p>
     </div>
+    <div class="col-3">
+        @include("Shared.SearchBox")
+        @include("Shared.FollowerBox")
+    </div>
+</div>
+
+
 @endsection
