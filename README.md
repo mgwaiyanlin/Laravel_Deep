@@ -7,6 +7,8 @@
 -  ` php artisan make:migration add_bio_and_image_to_users ` augment columns to an existing table
 -  ` php artisan storage:link ` to link 'public/storage' with 'storage/app/public'
 - ` php artisan make:migration create_follower_user_table --create `
+- ` php artisan make:mail WelcomeEmail `
+
 
 ## Included Features
 - CRUD functionalities with MySQL
