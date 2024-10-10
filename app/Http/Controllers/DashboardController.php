@@ -9,6 +9,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // the opposite of with
+        // $ideas = Idea::without('user')->orderBy("created_at","desc");
         $ideas = Idea::orderBy("created_at","desc");
 
         if(request()->has("search")) {

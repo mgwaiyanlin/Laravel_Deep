@@ -26,5 +26,5 @@
 
 
 #### Laravel Debuger Installation
-`composer require barryvdh/laravel-debuger --dev`
+`composer require barryvdh/laravel-debugbar --dev`
 

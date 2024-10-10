@@ -13,7 +13,6 @@ class Idea extends Model
      *  $guarded is the opposite of $fillable. The vars in the $guarded will not be filled.
      *  You can use either one.
      */
-
     // protected $guarded = [
     //     "id",
     //     "created_at"
@@ -24,6 +23,8 @@ class Idea extends Model
         "content",
         "like",
     ];
+
+    protected $with = ['user:id,name,image','comments.user:id,name,image'];
 
     public function comments() {
         return $this->hasMany(Comment::class);
