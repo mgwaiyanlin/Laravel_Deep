@@ -43,7 +43,7 @@
                 </form>
             </div>
         @else
-            <p class="fs-6 fw-light text-muted">
+            <p class="fs-5">
                 {{ $idea->content }}
             </p>
         @endif
@@ -52,7 +52,7 @@
             @include('IdeaPages.Shared.idea-like-button')
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
-                    {{ $idea->created_at }} </span>
+                    {{ $idea->created_at->diffForHumans() }} </span>
             </div>
         </div>
         @include('Shared.CommentBox')

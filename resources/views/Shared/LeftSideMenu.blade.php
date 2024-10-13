@@ -6,7 +6,11 @@
                     <span>Home</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ (Request::is('terms')) ? ' text-white bg-primary rounded' : '' }}" href="{{ route('itea.terms') }}">
+                <a class="nav-link text-dark {{ (Route::is('followed-feed')) ? 'text-white bg-primary rounded' : '' }}" href="{{ route('followed-feed') }}">
+                    <span>Followed Feed</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark {{ (Request::is('terms')) ? ' text-white bg-primary rounded' : '' }}" href="{{ route('itea.terms') }}">
                     <span>Terms</span></a>
             </li>
         </ul>

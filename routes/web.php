@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\IdeaLikeController;
@@ -42,6 +43,8 @@ Route::view("/login", "Auth.Login")->name("login");
 
 Route::post('/user/login', [AuthController::class,'login'])->name('login.action');
 Route::post("/logout", [AuthController::class, "logout"])->name("logout");
+
+Route::get('/followed-feed', FeedController::class)->middleware('auth')->name('followed-feed');
 
 // term routes
 Route::view("/terms", "Terms")->name("itea.terms");
