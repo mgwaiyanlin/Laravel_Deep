@@ -8,11 +8,11 @@
         <div class="col-6">
             @include('Shared.SuccessMessage')
             {{-- @include('Shared.ErrorMessaage') --}}
-            @include('Shared.SharedIdeaForm')
+            @include('IdeaPages.Shared.SharedIdeaForm')
 
             @forelse ($ideas as $idea)
             <div class="mt-3">
-                @include('Shared.IdeaCard')
+                @include('IdeaPages.Shared.IdeaCard')
             </div>
             @empty
                 <p class="text-center my-4">No results found!</p>

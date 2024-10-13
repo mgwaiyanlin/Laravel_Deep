@@ -21,7 +21,6 @@ class Idea extends Model
     protected $fillable = [
         "user_id",
         "content",
-        "like",
     ];
 
     protected $with = ['user:id,name,image','comments.user:id,name,image'];
@@ -32,5 +31,9 @@ class Idea extends Model
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function likes() {
+        return $this->belongsToMany(User::class,'idea_like')->withTimestamps();
     }
 }

@@ -13,7 +13,9 @@
     </form>
     <hr>
 
-    @foreach ($idea->comments as $comment)
-        @include("Shared.CommentMessages")
-    @endforeach
+    @forelse ($idea->comments as $comment)
+    @include("Shared.CommentMessages")
+    @empty
+        <p class="text-center">No comments found!</p>
+    @endforelse
 </div>

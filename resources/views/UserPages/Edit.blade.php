@@ -9,7 +9,7 @@
             @include('Shared.SuccessMessage')
 
             <div class="mt-3">
-                @include('Shared.UserEditCard')
+                @include('UserPages.Shared.UserEditCard')
             </div>
 
             <div class="mt-3">
@@ -17,7 +17,7 @@
 
                 @forelse ($ideas as $idea)
                     <div class="my-3">
-                        @include('Shared.IdeaCard')
+                        @include('IdeaPages.Shared.IdeaCard')
                     </div>
                 @empty
                     <div class="text-center">There is no post!</div>

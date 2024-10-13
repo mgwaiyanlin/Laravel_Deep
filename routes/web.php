@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\IdeaLikeController;
 use App\Http\Controllers\UserController;
 
 // idea routes
@@ -25,15 +26,20 @@ Route::group(["prefix"=> "idea/", "as"=> "idea.", "middleware"=> ["auth"]], func
 // Resource Routing :: is the same as above the old way route style.
 // !WARNING! needs to follow the routing name rules
 // Route::resource('idea', IdeaController::class)->except('index', 'create')->middleware('auth');
-Route::resource('user', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
+Route::resource('user', UserController::class)->only('show');
+Route::resource('user', UserController::class)->only('edit', 'update')->middleware('auth');
 
 Route::post('/user/{user}/follow', [FollowerController::class,'follow'])->name('user.follow');
 Route::post('/user/{user}/unfollow', [FollowerController::class,'unfollow'])->name('user.unfollow');
+
+Route::post('/ideas/{idea}/like', [IdeaLikeController::class,'like'])->middleware('auth')->name('idea.like');
+Route::post('/ideas/{idea}/unlike', [IdeaLikeController::class, 'unlike'])->middleware('auth')->name('idea.unlike');
 
 // Authentication routes
 Route::view("/register", "Auth.Register")->name("register");
 Route::post("/user/register", [AuthController::class,"register"])->name("register.create");
 Route::view("/login", "Auth.Login")->name("login");
+
 Route::post('/user/login', [AuthController::class,'login'])->name('login.action');
 Route::post("/logout", [AuthController::class, "logout"])->name("logout");
 
