@@ -51,4 +51,4 @@ Route::get('/followed-feed', FeedController::class)->middleware('auth')->name('f
 Route::view("/terms", "Terms")->name("itea.terms");
 
 // admin routes
-Route::get('/admin', [AdminDashboardController::class, 'index'])->middleware(['auth', 'admin'])->name('admin.dashboard');
+Route::get('/admin', [AdminDashboardController::class, 'index'])->middleware(['auth', 'can:isUserAdmin'])->name('admin.dashboard');

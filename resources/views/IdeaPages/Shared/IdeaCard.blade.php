@@ -2,24 +2,26 @@
     <div class="px-3 pt-4 pb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                    src="{{ $idea->user->getImageUrl() }}"
+                <img style="width:50px" class="me-2 avatar-sm rounded-circle" src="{{ $idea->user->getImageUrl() }}"
                     alt="{{ $idea->user->name }}">
                 <div>
-                    <h5 class="card-title mb-0"><a href="{{ route('user.show', $idea->user) }}"> {{ $idea->user->name }} </a></h5>
+                    <h5 class="card-title mb-0"><a href="{{ route('user.show', $idea->user) }}"> {{ $idea->user->name }}
+                        </a></h5>
                 </div>
             </div>
             <div class="d-flex items-center">
                 <a href="{{ route('idea.show', $idea) }}">View</a>
                 @auth
-                    @if (Auth::user()->id == $idea->user_id)
+                    @can('idea.delete', $idea)
                         <a href="{{ route('idea.edit', $idea) }}" class="mx-2">Edit</a>
+                    @endcan
+                    @can('idea.edit', $idea)
                         <form action="{{ route('idea.delete', $idea) }}", method="POST">
                             @csrf
                             @method('delete')
                             <button class="btn btn-danger btn-sm">X</button>
                         </form>
-                    @endif
+                    @endcan
                 @endauth
             </div>
         </div>
