@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
@@ -49,3 +50,5 @@ Route::get('/followed-feed', FeedController::class)->middleware('auth')->name('f
 // term routes
 Route::view("/terms", "Terms")->name("itea.terms");
 
+// admin routes
+Route::get('/admin', [AdminDashboardController::class, 'index'])->middleware(['auth', 'admin'])->name('admin.dashboard');
