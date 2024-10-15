@@ -38,12 +38,14 @@ Route::post('/ideas/{idea}/like', [IdeaLikeController::class,'like'])->middlewar
 Route::post('/ideas/{idea}/unlike', [IdeaLikeController::class, 'unlike'])->middleware('auth')->name('idea.unlike');
 
 // Authentication routes
-Route::view("/register", "Auth.Register")->name("register");
-Route::post("/user/register", [AuthController::class,"register"])->name("register.create");
-Route::view("/login", "Auth.Login")->name("login");
 
-Route::post('/user/login', [AuthController::class,'login'])->name('login.action');
-Route::post("/logout", [AuthController::class, "logout"])->name("logout");
+Route::group(['middleware' => 'guest'], function () {
+    Route::view("/register", "Auth.Register")->name("register");
+    Route::post("/user/register", [AuthController::class,"register"])->name("register.create");
+    Route::view("/login", "Auth.Login")->name("login");
+    Route::post('/user/login', [AuthController::class,'login'])->name('login.action');
+});
+Route::post("/logout", [AuthController::class, "logout"])->middleware('auth')->name("logout");
 
 Route::get('/followed-feed', FeedController::class)->middleware('auth')->name('followed-feed');
 

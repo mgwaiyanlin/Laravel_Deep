@@ -8,7 +8,14 @@
 -  `php artisan storage:link ` to link 'public/storage' with 'storage/app/public'
 -  `php artisan make:migration create_follower_user_table --create `
 -  `php artisan make:mail WelcomeEmail `
-
+-  `php artisan make:middleware EnsureUserIsAdmin `
+-  `php artisan make:policy IdeaPolicy --model=Idea ` be aware of the naming scheme to your policy, if it is different, you need to declare it in AuthServiceProvider
+For example, different naming shceme addition =>
+`
+    protected $policies = [
+        Idea::class => IdeaPermissions::class
+    ]
+`
 
 ## Included Features
 - CRUD functionalities with MySQL

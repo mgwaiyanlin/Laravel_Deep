@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -23,6 +24,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        Gate::authorize("update", $user);
         $editing = true;
         $ideas = $user->ideas()->latest()->paginate(2);
         return view("UserPages.Edit", compact("user", "editing", "ideas"));
