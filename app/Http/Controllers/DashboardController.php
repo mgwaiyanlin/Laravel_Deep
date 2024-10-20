@@ -11,7 +11,7 @@ class DashboardController extends Controller
     {
         // the opposite of with
         // $ideas = Idea::without('user')->orderBy("created_at","desc");
-        $ideas = Idea::orderBy("created_at","desc");
+        $ideas = Idea::withCount('likes')->orderBy("created_at","desc");
 
         if(request()->has("search")) {
             $ideas = $ideas->where('content', 'LIKE', '%'. request('search') .'%');

@@ -1,5 +1,5 @@
 @extends('AppLayout.Layout')
-
+@section('title', 'Idea Page')
 @section('AppContent')
     <div class="row">
         <div class="col-3">

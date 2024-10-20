@@ -1,5 +1,5 @@
 @extends('AppLayout.Layout')
-
+@section('title', $user->name)
 @section('AppContent')
     <div class="row">
         <div class="col-3">

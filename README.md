@@ -10,6 +10,9 @@
 -  `php artisan make:mail WelcomeEmail `
 -  `php artisan make:middleware EnsureUserIsAdmin `
 -  `php artisan make:policy IdeaPolicy --model=Idea ` be aware of the naming scheme to your policy, if it is different, you need to declare it in AuthServiceProvider
+-  `php artisan make:request UpdateUserRequest` to validate requests
+
+
 For example, different naming shceme addition =>
 `
     protected $policies = [
